@@ -1,0 +1,290 @@
+#.gitignore
+------------
+
+**/.settings/**
+**/.project
+**/.classpath
+**/target/**
+**/src/test/**
+
+
+# Milestone
+--------------
+
+Milestone title: 
+
+Write a program to work with Anagrams
+
+Milestone description:
+
+Two strings are anagrams if they are permutations of each other. In other words, both strings have the same size and the same characters. For example, "aaagmnrs" is an anagram of "anagrams". Given an array of strings, remove each string that is an anagram of an earlier string, then return the remaining array in sorted order.
+
+Example
+
+str = ['code', 'doce', 'ecod', 'framer', 'frame']
+
+"code" and "doce" are anagrams. Remove "doce" from the array and keep the first occurrence "code" in the array.
+"code" and "ecod" are anagrams. Remove "ecod" from the array and keep the first occurrence "code" in the array.
+"code" and "framer" are not anagrams. Keep both strings in the array.
+"framer" and "frame" are not anagrams due to the extra 'r' in 'framer'. Keep both strings in the array.
+Order the remaining strings in ascending order: [ "code","frame","framer"].
+
+
+
+#Issue
+----------
+
+Issue Title: Complete implementation for funWithAnagrams() method
+Issue description:
+
+Function Description
+
+Complete the function funWithAnagrams .
+
+funWithAnagrams has the following parameters:
+
+string text[n]:  an array of strings
+Returns:
+
+string[m]:  an array of the remaining strings in ascending alphabetical order,.
+Constraints
+
+0 ≤ n ≤ 1000
+0 ≤ m ≤ n
+1 ≤ length of text[i] ≤ 1000
+Each string text[i] is made up of characters in the range ascii[a-z].
+
+
+pom.xml:
+---------
+<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+
+
+Method stub:
+---------------
+
+public static List<String>funWithAnagrams(List<String>text) {
+  return null;
+}
+
+Method implementation:
+
+
+ public static List<String>funWithAnagrams(List<String>text) {
+      Vector<String> vlist =new Vector<String> ();
+      HashSet<String> hlist =new HashSet<String>();
+      //List<String> list = new ArrayList<>();
+      for(int i =0; i <text.size(); i++) {
+          String s =text.get(i);
+          s =Stream.of(s.split("")).sorted().collect(Collectors.joining());
+          //list.add(word);
+          if(!hlist.contains(s)) {
+              vlist.add(text.get(i));
+              hlist.add(s);
+          }
+          Collections.sort(vlist);
+          //text.forEach((n) -> System.out.println(n));
+      }
+      return vlist;
+      //return hlist;
+	}
+
+
+
+Test case :
+--------------------
+
+package com.cg.testrepos;
+import static org.junit.Assert.assertEquals;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+
+import junit.framework.TestCase;
+
+
+@RunWith(Parameterized.class)
+public class AppTest extends TestCase
+{
+    
+	private List<String> expectedResult;
+	private List<String>  messages;
+
+
+	public AppTest(List<String> messages, List<String> expectedResult) {
+		// TODO Auto-generated constructor stub
+
+		this.expectedResult = expectedResult;
+		this.messages = messages;
+	}
+
+	@Before
+	public void setup() {
+		App app = new App();
+	}
+	
+	@Parameters	
+	//parameterized collection
+	public static Collection collection() {
+		return Arrays.asList(new Object[][] {
+
+			{ Arrays.asList(new String[]{"code", "aaagmnrs"}), Arrays.asList(new String[] {"aaagmnrs","code"})},
+			{ Arrays.asList(new String[]{"poke", "pkoe","okpe","ekop"}), Arrays.asList(new String[] {"poke"})},
+			{ Arrays.asList(new String[]{"aaa", "bbb","ccc"}), Arrays.asList(new String[]{"aaa", "bbb","ccc"})}
+			
+
+		});
+
+	}
+    @org.junit.Test
+    public void test() {
+
+    	System.out.println( messages.get(0) + "\t"+ expectedResult.get(0));
+    	assertEquals(App.funWithAnagrams(messages), expectedResult);
+    }
+    //call funWithAnagrams() set of input
+
+}
+
+
+-------------------------------------------
+
+
+
+
+
+
+
+import static org.junit.Assert.assertEquals;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+
+import junit.framework.TestCase;
+
+
+@RunWith(Parameterized.class)
+public class AppTest extends TestCase
+{
+    
+	private Integer value;
+	private List<String> expectedResult;
+	private List<String>  messages;
+
+	public AppTest(Integer value, List<String> messages, List<String> expectedResult) {
+		// TODO Auto-generated constructor stub
+
+		this.value = value;
+		this.expectedResult = expectedResult;
+		this.messages = messages;
+	}
+
+	@Before
+	public void setup() {
+
+		App app = new App();
+	}
+	
+	@Parameters	
+	//parameterized collection
+	public static Collection collection() {
+		return Arrays.asList(new Object[][] {
+
+			{4, Arrays.asList(new String[]{"codee", "aaagmnrs"}), Arrays.asList(new String[] {"aaagmnrs","code"})},
+			{4, Arrays.asList(new String[]{"poke", "pkoe","okpe","ekop"}), Arrays.asList(new String[] {"poke"})},
+			{3, Arrays.asList(new String[]{"aaa", "bbb","ccc"}), Arrays.asList(new String[]{"aaa", "bbb","ccc"})}
+
+		});
+
+	}
+    @org.junit.Test
+    public void test() {
+
+    	System.out.println("input: " + "\t"+ value + "\t"+ messages.get(0) + "\t"+ expectedResult.get(0));
+    	assertEquals(App.funWithAnagrams(messages), expectedResult);
+    }
+    //call funWithAnagrams() set of input
+
+}
+
+
+
+1.repo
+2..gitignoe(--
+3.mile
+4.issues
+
+ 
+5.clone
+6.mavan pro
+7.solu
+8..test(--void test())
+
+
+
+
+GitHub is a code hosting platform where we can work together in project.
+
+gitignore file 
+It's a text file that tells Git which files or folders to ignore in a project.
+we can also create a global . gitignore file and any entries in that file will be ignored in all of your Git repositories.
+
+milestone is higher prority task which deliver or complete at give time.
+
+Remember that a milestone is a point in time.
+Tasks are the steps to reach the designated point.
+
+clone
+copy the repository from GitHub to our local machine.
+
+
+here return 3 test-cases and we can write N number of test-cases here
+same method different input parameter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

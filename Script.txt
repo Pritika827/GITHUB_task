@@ -1,0 +1,143 @@
+
+<!--------------------------git-cli commands ---------------------------->
+
+gh auth login
+gh repo create CG-FS-ABL/git-cli-test(repo) --private
+gh api -X PUT repos/CG-FS-ABL/git-cli-test/collaborators/divchava
+git config --global url."https://PritikaPS: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@github.com
+
+
+<!--------------------------git-cli Environment set ----------------------->
+
+$Env:PATH += ";C:\gh_2.8.0_windows_amd64 (1)\bin"
+
+
+<!----------------------create repo and add collaborator---------------------->
+
+Import-Csv c:\TEMP\details.csv | ForEach-Object {
+ "$($_.emailid) - $($_.org) - $($_.repository) - $($_.username) "
+ gh repo create CG-FS-ABL/$($_.repository) --private
+  gh api /repos/$($_.org)/$($_.repository)/collaborators/$($_.username) -X PUT -f permission='push'
+ }
+
+
+<!--------------------------read test-cases ---------------------------->
+
+test-cases(xml file) path :-
+C:\local-repos\Test_Repo\Test-Repos\target\surefire-reports\TEST-com.cg.Test_Repos.AppTest.xml
+
+$XMLfile = 'C:\local-repos\Test_Repo\Test-Repos\target\surefire-reports\TEST-com.cg.Test_Repos.AppTest.xml'
+ [XML]$testsuite = Get-Content $XMLfile
+
+ foreach($catalogDetails in $testsuite.testsuite){
+
+ Write-Host "Tests :" $catalogDetails.tests
+ Write-Host "failures :" $catalogdetails.failures
+ Write-Host "name :" $catalogdetails.name
+ Write-Host "time :" $catalogdetails.time
+ Write-Host "errors :" $catalogdetails.errors
+ Write-Host "skipped :" $catalogdetails.skipped
+ Write-Host ''
+
+ }
+ foreach($catalogDetails in $testsuite.testsuite.testcase){
+ Write-Host "classname :" $catalogDetails.classname
+ Write-Host "Name :" $catalogDetails.name
+ Write-Host "Time :" $catalogDetails.time
+ Write-Host ''
+ }
+
+
+<!---------------------read test-case in CSV(comma-separated values file)----------------->
+
+Note:run (as maven test) test-case in eclipse 
+
+
+$data = New-Object xml;
+
+$data.load('C:\local-repos\divya-repo\Entry\target\surefire-reports\TEST-com.cg.Entry.AppTest.xml')
+
+$record = [pscustomobject]@{
+#"updatetime"             = $data.SelectSingleNode("//testsuite")."#text"
+"Tests"          = $data.SelectSingleNode("//testsuite").tests
+"Failures"          = $data.SelectSingleNode("//testsuite").failures
+"Errors"          = $data.SelectSingleNode("//testsuite").errors
+}
+$record | ConvertTo-Csv -NoTypeInformation -Delimiter ',' | Set-Content -Path "c:\TEMP\test.csv" -Encoding utf8
+
+
+
+
+
+<!---------------- read csv file in powershell ------------->
+Import-Csv c:\TEMP\details.csv | ForEach-Object {
+  $emailid = $_.emailid
+  $repository = $_.repository
+  $username = $_.username
+  $test = "/repos/CG-FS-ABL/abhi/collaborators/abhishekghode"
+  "$emailid - $repository - $username - $test"
+ gh api /repos/CG-FS-ABL/abhi/collaborators/abhishekghode -X PUT -f permission='push'
+ }
+
+
+
+<!--------------script to read xml file in powershell -------------->
+
+
+ $XMLfile = 'C:\TEMP\books.xml'
+ [XML]$catalog = Get-Content $XMLfile
+
+ foreach($catalogDetails in $catalog.catalog.book){
+>>
+>> Write-Host "book author :" $catalogDetails.author
+>> Write-Host "book title :" $catalogdetails.title
+>> Write-Host "book genre :" $catalogdetails.genre
+>> Write-Host "book price :" $catalogdetails.price
+>> Write-Host "book publish_date :" $catalogdetails.publish_date
+>> Write-Host "book description :" $catalogdetails.description
+>> Write-Host ''
+>>
+>> }
+
+
+
+
+$test = "/repos/CG-FS-ABL/tenth/collaborators/abhishekghode"
+
+/repos/CG-FS-ABL/tenth/collaborators/abhishekghode
+
+$test = "/repos/CG-FS-ABL/$repository/collaborators/$username"
+
+C:\tools\GithubCLI\gh_2.6.0_windows_amd64
+
+
+Invoke-Expression -Command $(gh completion -s powershell | Out-String)
+
+
+$Env:PATH += ";C:\Program Files\Scripts"t
+
+
+C:\gh_2.8.0_windows_amd64 (1)\bin
+$Env:PATH += ";C:\gh_2.8.0_windows_amd64 (1)\bin"
+
+
+
+$ git clone --bare https://github.com/CG-FS-ABL/OrderApplication.git
+
+
+
+Import-Csv c:\TEMP\details.csv | ForEach-Object {
+  "$($_.emailid) - $($_.org) - $($_.repository) - $($_.username) "
+  gh repo create CG-FS-ABL/$($_.repository) --private
+ 
+}
+ForEach-Object {
+ "$($_.emailid) - $($_.org) - $($_.repository) - $($_.username) "
+ gh api /repos/$($_.org)/$($_.repository)/collaborators/$($_.username) -X PUT -f permission='push'
+}
+
+
+
+
+
+

@@ -1,0 +1,63 @@
+OrderApp
+Orders API An order represents a payment between two or more parties. Use the Orders API to create, update, retrieve, authorize, and capture orders.
+
+Create order POST /v2/checkout/orders
+
+Request body Collapse intentenumrequired The intent to either capture payment immediately or authorize a payment for an order after order creation.
+
+The possible values are:
+
+CAPTURE. The merchant intends to capture payment immediately after the customer makes a payment. AUTHORIZE. The merchant intends to authorize a payment and place funds on hold after the customer makes a payment. Authorized payments are best captured within three days of authorization but are available to capture for up to 29 days. After the three-day honor period, the original authorized payment expires and you must re-authorize the payment. You must make a separate request to capture payments on demand. This intent is not supported when you have more than one purchase_unit within your order. processing_instructionenum The instruction to process an order.
+
+The possible values are:
+
+ORDER_COMPLETE_ON_PAYMENT_APPROVAL. API Caller expects the Order to be auto completed (i.e. for PayPal to authorize or capture depending on the intent) on completion of payer approval. This option is not relevant for payment_source that typically do not require a payer approval or interaction. This option is currently only available for the following payment_source: Alipay, Bancontact, BLIK, boletobancario, eps, giropay, iDEAL, Multibanco, MyBank, OXXO, P24, PayU, PUI, SafetyPay, SatisPay, Sofort, Trustly, TrustPay, Verkkopankki, WeChat Pay NO_INSTRUCTION. The API caller intends to authorize v2/checkout/orders/id/authorize or capture v2/checkout/orders/id/capture after the payer approves the order. payerobject The customer who approves and pays for the order. The customer is also known as the payer.
+
+purchase_unitsarray (contains the purchase_unit_request object)required An array of purchase units. Each purchase unit establishes a contract between a payer and the payee. Each purchase unit represents either a full or partial order that the payer intends to purchase from the payee.
+
+application_contextobject Customize the payer experience during the approval process for the payment with PayPal.
+
+Milestone :
+Order API
+
+Order API description :
+An order represents a payment between two or more parties.
+Use the Orders API to create, update, retrieve, authorize, and capture orders.
+
+Use the /orders resource to create, update, retrieve, authorize, and capture orders.
+API end-point
+
+Create order
+POST /v1/checkout/orders
+2.Cancel order
+DELETE/v1/checkout/orders/{order_id}
+
+3.Show order details
+GET /v1/checkout/orders/{order_id}
+
+4.Pay for order
+POST /v1/checkout/orders/{order_id}/pay
+
+5.Update order
+PATCH /v2/checkout/orders/{id}
+
+6.Show order details
+GET /v2/checkout/orders/{id}
+
+Authorize payment for order
+POST /v2/checkout/orders/{id}/authorize
+
+
+Issue title:
+Use collection API to store Order
+
+Issues description :
+1.Create a new stub which has order details stored in HashMap.
+2. Create a controller which implements Order API.
+
+Issue title:
+Use H2 database to stored orders.
+
+Issues description :
+Create Spring data repository to perform DB operations against H2 database.
+Inject Spring data repository into REST controller for Order.

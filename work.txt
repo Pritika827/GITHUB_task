@@ -1,0 +1,184 @@
+crowd solN
+assign task
+daily task assign by trainer
+
+issues
+timing
+
+assign assignment -- daily
+40-400
+toll work proper
+
+im memeory
+jpa
+microservices
+
+
+exist s
+easy to assign task
+generate report difficulty --  we work on automation
+
+we're DHP on front 
+
+onwer abhishek
+collaborator us DHP
+
+E:M:D
+read me
+maven project -- 
+test-cases
+2:2:1
+library REST API , JPA
+
+read milestone,issue
+
+word doc.
+
+final replace
+
+github action
+h2 database
+crowd sourceing
+thymeleaf
+
+
+github tagging and release
+1st :
+read me
+mile issue
+release
+
+2nd : 
+maven project
+
+3rd :
+every issues release version
+
+hello
+
+
+maven push tag push
+
+
+
+
+
+dil. role: 
+-developer
+login -- create new job-- freestyle project
+scroll
+source code mgt. -- repo url
+add github credentials
+
+
+
+what is jenkins
+
+dev. problem soln
+incremental approach
+
+mgt.
+coordinate with participate and trainer -- pritika sec. D & H
+powershell -- divya,leading (tech.) -- divya & hussain secondory responsblity pritika
+
+icompass
+
+
+
+1.owner assign task
+2.collaborator recieve the assign task mail
+3.click on link(link given in mail) -- open assign task mail (milestone, issues in github)
+4.read the task(in github)
+5.in github,
+	a) goto code --> copy HTTPS link 
+	b) open eclipse --> git repo --> paste link --> import project --> write sol. --> commit and push
+
+
+
+
+owner assign task
+mail sent to collaborator
+
+
+
+owner(trainer)  --------------------------------  manage que. 				
+|																				test participant list											
+|
+present in csv file
+|
+owner assign task to 
+(write powershell script)
+
+collaborator
+|										
+receive mail
+(pull the code write sol. commit &push )
+ 
+
+
+
+
+--------------------JPA-----------------
+@RequestMapping(value = "shipwrecks", method = RequestMethod.GET)
+	public List<Shipwreck> list() {
+		return shipwreckRepository.findAll();
+	}  
+
+----------------------------------------------------------------
+@RequestMapping(value = "shipwrecks", method = RequestMethod.GET)
+	public List<Shipwreck> list() {
+		return ShipwreckStub.list();
+	}
+
+
+Use case  - 
+Description
+The Enthrall tool is a task automation tool 
+One mentor assign the technical task to folks manually one-by-one . It a tedious task for mentor.
+we over come this problem with the help of this tool just like HackerRank or other plateform.
+Here we use GitHub repository for assign task and report(folk's result) generation of N number of folks.
+By using this tool we --
+		Automatically assigning task
+		Automatically sent emails, when a task is assigned
+		Task evaluation
+		Generates reports in CSV formate
+
+
+Problem Statement
+Mentor assigning the technical task to folks, evaluate task, generate folks result report manually one-by-one . It a tedious task for mentor.
+To over come this problem with the help of this tool just like HackerRank or other plateform.The Enthrall Tool to automate the mentor task.
+
+mlde
+
+		
+Solution provided -
+Crowd-solution for mentor. By automation, mentor just run the command and automatically task assign to folks and folks recieve mail regrading task and report generation.
+We use incremental approach on this automation.
+
+
+Results/ Benefits on the outcome of the implementation -
+reduced mentor tedious task
+crowd-solution
+
+
+The trainer assigned the task from a pre-built library (GitHub repositories) using the Enthrall Automation tool.
+Candidates receive the mail as you are added as a collaborator to this repository.
+Candidates clone the GitHub repository on their local machine.
+Candidates complete the task and push the code on GitHub in the same repository.
+Finally, the trainer can generate the report in excel sheet for all candidates.
+
+akshay baljeet,harish
+40	60	20
+
+ 
+
+
+
+
+
+
+
+
+
+
+

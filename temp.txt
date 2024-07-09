@@ -1,0 +1,133 @@
+github ---- Action ---- java with maven ---- Automation (greeting)
+
+
+# Milestone
+--------------
+
+Milestone title: 
+Write a program to calculate gold price in jewellery
+
+
+Milestone description:
+Meena purchase jewellert from ABC jeweller . She want to calaculter jewellery gold prices.
+3% GST ,it return total gold prices.
+
+Example
+
+making price is 10% of total price
+total gold price = total price + making price + gst
+
+jewellery in gram : 9.6
+total gold price = 48401.76
+
+
+#Issue
+----------
+
+Issue Title: Complete implementation for calculategoldprice() method
+Issue description:
+
+Function Description
+
+Complete the function calculategoldprice.
+
+calculategoldpricehas the following parameters:
+
+double:  total price of gold
+Returns:gold total price
+
+0 ≤ gold prices ≤ n
+note : gst = 3% 
+
+
+
+milestone
+enviorment
+java 8
+order 
+
+:
+Issues 1 : Support this features by collection api
+use collection API to stored orders
+id string
+The ID of the order.
+
+intent enum
+The intent.
+
+The possible values are:
+
+SALE. A sale.
+AUTHORIZE. An authorization.
+
+CREATED. The POST /v1/checkout/orders call succeeded and the order was created.
+APPROVED. The customer approved the order.
+COMPLETED. The POST /v1/checkout/orders/{order_id}/pay call succeeded and the order was paid and is complete.
+FAILED. The order failed.
+
+Issues2
+Support this features by JPA
+id string
+The ID of the order.
+
+intent enum
+The intent.
+
+The possible values are:
+
+SALE. A sale.
+AUTHORIZE. An authorization.
+
+CREATED. The POST /v1/checkout/orders call succeeded and the order was created.
+APPROVED. The customer approved the order.
+COMPLETED. The POST /v1/checkout/orders/{order_id}/pay call succeeded and the order was paid and is complete.
+FAILED. The order failed.
+
+
+
+
+
+
+Order API description :
+An order represents a payment between two or more parties. 
+Use the Orders API to create, update, retrieve, authorize, and capture orders.
+
+
+Use the /orders resource to create, update, retrieve, authorize, and capture orders.
+API end-point 
+1. Create order
+POST /v1/checkout/orders
+
+2.Cancel order
+DELETE/v1/checkout/orders/{order_id}
+
+3.Show order details
+GET /v1/checkout/orders/{order_id}
+
+4.Pay for order
+POST /v1/checkout/orders/{order_id}/pay
+
+5.Update order
+PATCH /v2/checkout/orders/{id}
+
+6.Show order details
+GET /v2/checkout/orders/{id}
+
+7. Authorize payment for order
+POST /v2/checkout/orders/{id}/authorize
+
+
+@RequestMapping(value = "shipwrecks", method = RequestMethod.GET)
+	public List<Shipwreck> list() {
+		return ShipwreckStub.list();
+
+	@RequestMapping(value = "shipwrecks", method = RequestMethod.GET)
+	public List<Shipwreck> list() {
+		return ShipwreckStub.list();
+	
+
+
+
+
+
+
